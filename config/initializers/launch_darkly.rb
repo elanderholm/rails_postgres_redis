@@ -12,7 +12,10 @@ begin
     env: LAUNCH_DARKLY_ENV_NAME  
   )
   
-  $ld_client = Rails.configuration.ld_client = LaunchDarkly::LDClient.new(launch_darkly_env.apiKey)
+  Rails.configuration.ld_client = LaunchDarkly::LDClient.new(launch_darkly_env.apiKey)
 rescue => e
-  exit 1
+  Rails.logger.error "ERROR!!"
+  Rails.logger.error "LAUNCH_DARKLY_API_KEY : #{LAUNCH_DARKLY_API_KEY}"
+  Rails.logger.error "LAUNCH_DARKLY_PROJECT_NAME : #{LAUNCH_DARKLY_PROJECT_NAME}"
+  Rails.logger.error "LAUNCH_DARKLY_ENV_NAME : #{LAUNCH_DARKLY_ENV_NAME}"
 end
