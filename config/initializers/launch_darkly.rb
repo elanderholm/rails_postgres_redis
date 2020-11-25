@@ -14,5 +14,5 @@ begin
   
   $ld_client = Rails.configuration.ld_client = LaunchDarkly::LDClient.new(launch_darkly_env.apiKey)
 rescue => e
-  binding.pry
+  exit 1
 end

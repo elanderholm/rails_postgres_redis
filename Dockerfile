@@ -1,5 +1,5 @@
 FROM ruby:2.7.1-alpine
-RUN apk add --update --no-cache bash build-base nodejs tzdata postgresql-dev yarn libcurl
+RUN apk add --update --no-cache bash build-base nodejs tzdata postgresql-dev yarn curl less
 RUN gem install bundler
 
 WORKDIR /app
