@@ -61,5 +61,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Whitelist the app to run on Release
-  config.hosts << /.*\.releaseapp\.io/
+  config.hosts << ENV.fetch('API_INGRESS_HOST') { 'localhost' }
 end
